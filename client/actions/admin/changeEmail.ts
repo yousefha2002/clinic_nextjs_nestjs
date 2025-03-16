@@ -1,0 +1,27 @@
+"use server";
+import { getAdminAuth } from "@/lib/auth";
+import { FormResponse } from "@/types/FormResponse";
+import { apiPost } from "@/utils/apiPost";
+import { handleApiError } from "@/utils/handleApiError";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+
+export async function changeEmail(prev: unknown, formData: FormData): Promise<FormResponse> {
+    const newEmail = formData.get('newEmail')
+    const token = await getAdminAuth()
+    const tokenValue = token ? token.value : undefined;
+    // Call the API to attempt login
+    const response = await apiPost(
+        `${process.env.API}admin/email`,
+        "PATCH",
+        { newEmail},
+        tokenValue
+    );
+
+    // If API returns errors, handle them
+    if (response.message) {
+        return { error: handleApiError(response) };
+    }
+    revalidatePath('/','layout')
+    redirect("/admin");
+}
