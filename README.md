@@ -35,6 +35,16 @@ The Clinic Project is a web application designed to manage patients, doctors, ap
 * **Change Email & Password**:
   * Patients can update their email address and change their password for security.
 
+### Screenshots
+Here are some screenshots from Store:
+
+![Screenshot 1](photos/1.png)
+![Screenshot 1](photos/2.png)
+![Screenshot 1](photos/3.png)
+![Screenshot 1](photos/4.png)
+![Screenshot 1](photos/5.png)
+![Screenshot 1](photos/6.png)
+![Screenshot 1](photos/7.png)
 ## Frontend Technologies and Skills
 * **Next.js 15**: A React-based framework for building server-side rendered web applications with ease.
 * **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
